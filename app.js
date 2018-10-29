@@ -11,6 +11,7 @@ App({
     console.log('App Hide')
   },
   globalData: {
+    billDatas : [],
     hasLogin: false,
     openid: null
   },

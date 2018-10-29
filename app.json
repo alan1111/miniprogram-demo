@@ -1,5 +1,6 @@
 {
   "pages": [
+    "page/menu/index",
     "page/component/index",
     "page/component/pages/view/view",
     "page/component/pages/scroll-view/scroll-view",
@@ -103,6 +104,12 @@
     "borderStyle": "black",
     "backgroundColor": "#ffffff",
     "list": [
+      {
+        "pagePath": "page/menu/index",
+        "iconPath": "image/icon_component.png",
+        "selectedIconPath": "image/icon_component_HL.png",
+        "text": "菜单"
+      },
       {
         "pagePath": "page/component/index",
         "iconPath": "image/icon_component.png",

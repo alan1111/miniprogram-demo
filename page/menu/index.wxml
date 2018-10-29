@@ -1,0 +1,35 @@
+<view class="index">
+    <view class="index-hd">
+        <image class="index-logo" src="../../image/ali888.jpg"></image>
+        <view class="index-desc">生意兴隆，万事如意</view>
+    </view>
+    <view class="page-body" style="text-align: center; font-size:50rpx">
+        <p>点菜啦</p>
+        <view class="flex-wrp" style="flex-direction:row;">
+            <button type="primary" size="mini">云南过桥米线</button>
+            <button type="primary" size="mini">面,粉</button>
+            <button type="primary" size="mini" bindtap="clearData">clear data</button>
+        </view>
+        <view class="table">
+            <view class="tr bg-w">
+                <view class="th">name</view>
+                <view class="th">money</view>
+                <view class="th ">clear</view>
+            </view>
+            <block wx:for="{{billDatas}}" wx:key="{{item.id}}">
+                <view class="tr">
+                    <view class="td">{{item.name}} - {{item.value}}</view>
+                    <view class="td">{{item.money}}</view>
+                    <view class="td">
+                        <button id="{{item.id}}" bindtap="kindToggle" wx:if="{{!item.clear}}" type="primary" size="mini">
+                            clear
+                        </button>
+                        <p wx:else>
+                            have cleared
+                        </p>
+                    </view>
+                </view>
+            </block>
+        </view>
+    </view>
+</view>
