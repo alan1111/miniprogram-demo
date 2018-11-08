@@ -57,35 +57,61 @@ Page({
             billDatas
         })
     },
+    getDate() {
+        let date = new Date();
+        let year = date.getFullYear();
+        let month = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1);
+        let day = date.getDate() < 10 ? '0' + date.getDate() : date.getDate();
+        let h = date.getHours();
+        let m = date.getMinutes();
+        let s = date.getSeconds();
+        let finalDate = `${year}年${month}月${day}日${h}时${m}分${s}秒`;
+        return finalDate;
+    },
+    getTotalMoney(billDatas) {
+        let dolor = 0;
+        billDatas.forEach(function (data) {
+            dolor += parseInt(data.money);
+        });
+        return dolor
+    },
     clearData() {
-        // let date = new Date();
-        // let year = date.getFullYear();
-        // let month = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1);
-        // let day = date.getDate() < 10 ? '0' + date.getDate() : date.getDate();
-        // console.log('111111', `${year}年${month}月${day}日`);
-        // var _this=this;
-        // wx.getStorage({key: 'allMessage',
-        //     success:function (res) {
-        //         let datas = res.data;
-        //         datas.push({
-        //             "date": '2018-11-8',
-        //             "billDatas":_this.data.billDatas,
-        //             "total": '1000'
-        //         });
-        //         wx.setStorage({
-        //             key: 'allMessage',
-        //             data: datas
-        //         });
-        //     },
-        //     fail: function() {
-        //         wx.setStorage({
-        //             key: 'allMessage',
-        //             data: []
-        //         });
-        //     }
-        // });
-        // this.setData({
-        //     billDatas : []
-        // })
+        var _this=this;
+        // wx.clearStorage
+        wx.getStorage({key: 'allMessage',
+            success:function (res) {
+                let datas = res.data;
+                let newBillDatas = [];
+                let clearBillDatas = [];
+                _this.data.billDatas.forEach(val=>{
+                    if (val.clear==false) {
+                        newBillDatas.push(val)
+                    } else {
+                        clearBillDatas.push(val)
+                    }
+                });
+                datas.push({
+                    "date": _this.getDate(),
+                    "billDatas":clearBillDatas,
+                    "total": _this.getTotalMoney(clearBillDatas)
+                });
+
+                if (clearBillDatas.length>0) {
+                    wx.setStorage({
+                        key: 'allMessage',
+                        data: datas
+                    });
+                }
+                _this.setData({
+                    billDatas : newBillDatas
+                })
+            },
+            fail: function() {
+                wx.setStorage({
+                    key: 'allMessage',
+                    data: []
+                });
+            }
+        });
     }
 })
