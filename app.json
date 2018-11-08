@@ -1,6 +1,8 @@
 {
   "pages": [
     "page/menu/index",
+    "page/menu/gq",
+    "page/menu/mf",
     "page/component/index",
     "page/component/pages/view/view",
     "page/component/pages/scroll-view/scroll-view",

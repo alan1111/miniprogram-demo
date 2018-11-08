@@ -60,3 +60,9 @@ button {
     height: 3rem;
     align-items: center;
 }
+.navigator-hover button{
+    background-color: #DEDEDE;
+}
+.other-navigator-hover button{
+    background-color: #DEDEDE;
+}

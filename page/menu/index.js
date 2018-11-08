@@ -1,4 +1,5 @@
 const app = getApp()
+
 Page({
     onShareAppMessage() {
         return {
@@ -57,8 +58,34 @@ Page({
         })
     },
     clearData() {
-        this.setData({
-            billDatas : []
-        })
+        // let date = new Date();
+        // let year = date.getFullYear();
+        // let month = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1);
+        // let day = date.getDate() < 10 ? '0' + date.getDate() : date.getDate();
+        // console.log('111111', `${year}年${month}月${day}日`);
+        // var _this=this;
+        // wx.getStorage({key: 'allMessage',
+        //     success:function (res) {
+        //         let datas = res.data;
+        //         datas.push({
+        //             "date": '2018-11-8',
+        //             "billDatas":_this.data.billDatas,
+        //             "total": '1000'
+        //         });
+        //         wx.setStorage({
+        //             key: 'allMessage',
+        //             data: datas
+        //         });
+        //     },
+        //     fail: function() {
+        //         wx.setStorage({
+        //             key: 'allMessage',
+        //             data: []
+        //         });
+        //     }
+        // });
+        // this.setData({
+        //     billDatas : []
+        // })
     }
 })
