@@ -39,7 +39,6 @@ button {
     justify-content: center;
     height: 3rem;
     align-items: center;
-    font-size: 30rpx;
 }
 .td {
     width:40%;

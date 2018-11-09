@@ -1,37 +1,61 @@
-const app = getApp()
-
 Page({
     onShareAppMessage() {
         return {
-            title: '小程序官方组件展示',
-            path: 'page/component/index'
+            title: '阿丽家米线店',
+            path: 'page/menu/index'
         }
     },
-    onLoad() {
-        // this.setData({
-        //     hasLogin: app.globalData.hasLogin
-        // })
-        // const self = this;
-        this.setData({
-            billDatas: [
-                {
-                    'id': '0',
-                    'name': 'gq',
-                    'value': '1-3-4',
-                    'money': '6',
-                    'clear': false
-                },
-                {
-                    'id': '1',
-                    'name': 'mf',
-                    'value': '2-5-7',
-                    'money': '7',
-                    'clear': false
-                },
-            ]
-        })
+    onLoad(options) {
+        let _this=this;
+        wx.getStorage({key: 'noClearData',
+            success:function (res) {
+                let storageData = res.data;
+                _this.setData({
+                    billDatas : storageData
+                });
+                if (Object.keys(options).length>0) {
+                    let data=_this.data.billDatas;
+                    let sizeMess = options.showSize ? (options.size ? '大碗-' : '小碗-') :'';
+                    data.push({
+                        'id': data.length,
+                        'listName': options.listName,
+                        'name': options.name,
+                        'request': `${options.qty}份-${sizeMess}${options.hot ? '辣' : '不辣'}`,
+                        'totalMoney': options.totalMoney,
+                        'clear': false
+                    });
+                    wx.setStorage({
+                        key: 'noClearData',
+                        data: data
+                    });
+                    _this.setData({
+                        billDatas:data
+                    })
+                }
+            },
+            fail: function() {
+                wx.setStorage({
+                    key: 'noClearData',
+                    data: []
+                });
+            }
+        });
+        wx.getStorage({key: 'hasClear',
+            success:function (res) {
+                _this.setData({
+                    hasClear:res.data
+                })
+            },
+            fail: function() {
+                wx.setStorage({
+                    key: 'hasClear',
+                    data: 0
+                });
+            }
+        });
     },
     data: {
+        hasClear:0,
         billDatas: [],
         listData:[
             {"code":"01","text":"text1","type":"type1"},
@@ -43,18 +67,35 @@ Page({
             {"code":"07","text":"text7","type":"type7"}
         ]
     },
-
+    toGq(){
+        wx.navigateTo({url: 'gq'})
+    },
+    toMf(){
+        wx.navigateTo({url: 'mf'})
+    },
     kindToggle(e) {
         const id = e.currentTarget.id
         let billDatas = this.data.billDatas;
+        let hasClear = 0;
         for (let i = 0, len = billDatas.length; i < len; ++i) {
-            if (billDatas[i].id === id) {
-                billDatas[i].clear = !billDatas[i].clear
+            if (billDatas[i].id == id) {
+                billDatas[i].clear = !billDatas[i].clear;
+            }
+            if (billDatas[i].clear) {
+                hasClear += parseInt(billDatas[i].totalMoney);
             }
         }
-        app.globalData.billDatas = billDatas
+        wx.setStorage({
+            key: 'noClearData',
+            data: billDatas
+        });
+        wx.setStorage({
+            key: 'hasClear',
+            data: hasClear
+        });
         this.setData({
-            billDatas
+            billDatas : billDatas,
+            hasClear:hasClear
         })
     },
     getDate() {
@@ -75,7 +116,7 @@ Page({
         });
         return dolor
     },
-    clearData() {
+    putHistory() {
         var _this=this;
         // wx.clearStorage
         wx.getStorage({key: 'allMessage',
@@ -102,8 +143,13 @@ Page({
                         data: datas
                     });
                 }
+                wx.setStorage({
+                    key: 'noClearData',
+                    data: newBillDatas
+                });
                 _this.setData({
-                    billDatas : newBillDatas
+                    billDatas : newBillDatas,
+                    hasClear:0
                 })
             },
             fail: function() {

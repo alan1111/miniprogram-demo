@@ -1,0 +1,43 @@
+<import src="../common/head.wxml" />
+
+<view class="container">
+  <template is="head" data="{{title: '云南过桥米线'}}"/>
+  <view class="page-body">
+    <form catchsubmit="formSubmit" catchreset="formReset">
+      <view class="flex-wrp" style="flex-direction:row;">
+        <view class="page-section page-section-gap">
+          <view class="page-section-title">数量</view>
+          <button type="primary" bindtap="addQty" size="mini">{{qty}}</button>
+        </view>
+        <view class="page-section page-section-gap">
+          <view class="page-section-title">辣/不辣</view>
+          <switch name="switch1" bindchange="hotChange"/>
+        </view>
+        <view class="page-section page-section-gap" wx:if="{{showSize=='true'}}">
+          <view class="page-section-title">大/小</view>
+          <switch name="switch2" bindchange="sizeChange"/>
+        </view>
+      </view>
+      <view class="table">
+        <view class="tr bg-w">
+          <view class="th ">数量</view>
+          <view class="th ">单价</view>
+          <view class="th">辣/不辣</view>
+          <view class="th" wx:if="{{showSize=='true'}}">大/小</view>
+          <view class="th">总额</view>
+        </view>
+        <view class="tr">
+          <view class="td">{{qty}}份</view>
+          <view class="td">{{money}}元</view>
+          <view class="td">{{hot ? '辣' : '不辣'}}</view>
+          <view class="td" wx:if="{{showSize=='true'}}">{{size ? '大' : '小'}}</view>
+          <view class="td">{{totalMoney}}元</view>
+        </view>
+      </view>
+      <view class="flex-wrp" style="flex-direction:row;">
+        <button type="primary" formType="submit">提交</button>
+        <button formType="reset">重置</button>
+      </view>
+    </form>
+  </view>
+</view>

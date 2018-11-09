@@ -2,27 +2,29 @@
     <view class="index-hd">
         <image class="index-logo" src="../../image/ali888.jpg"></image>
         <view class="index-desc">生意兴隆，万事如意</view>
-        <button type="primary" size="mini" bindtap="clearData">clear data</button>
     </view>
     <view class="page-body" style="text-align: center; font-size:50rpx">
         <view class="flex-wrp" style="flex-direction:row;">
-            <navigator url="gq" hover-class="navigator-hover">
-                <button type="primary" size="mini">云南过桥米线</button>
-            </navigator>
-            <navigator url="mf" hover-class="navigator-hover">
-                <button type="primary" size="mini">面,粉</button>
-            </navigator>
+            <button type="primary" bindtap="toGq">云南过桥米线</button>
+            <button type="primary" bindtap="toMf">面,粉</button>
+        </view>
+        <view class="flex-wrp" style="flex-direction:row;">
+            <button type="primary" size="mini" bindtap="putHistory">清除已支付订单</button>
+            <button class="mini-btn" type="default" size="mini">已支付订单总额： {{hasClear}}元</button>
+            <!--<button type="primary" size="mini">历史记录</button>-->
         </view>
         <view class="table">
             <view class="tr bg-w">
-                <view class="th">name</view>
-                <view class="th">money</view>
-                <view class="th ">clear</view>
+                <view class="th">名字</view>
+                <view class="th">要求</view>
+                <view class="th">需付</view>
+                <view class="th">清除</view>
             </view>
             <block wx:for="{{billDatas}}" wx:key="{{item.id}}">
                 <view class="tr">
-                    <view class="td">{{item.name}} - {{item.value}}</view>
-                    <view class="td">{{item.money}}</view>
+                    <view class="td">{{item.name}}</view>
+                    <view class="td">{{item.request}}</view>
+                    <view class="td">{{item.totalMoney}}</view>
                     <view class="td">
                         <button id="{{item.id}}" bindtap="kindToggle" wx:if="{{!item.clear}}" type="primary" size="mini">
                             clear
