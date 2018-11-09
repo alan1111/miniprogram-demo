@@ -10,13 +10,13 @@
   text-align: center;
 }
 .index-logo {
-  width: 86rpx;
-  height: 86rpx;
+  width: 450rpx;
+  height: 200rpx;
 }
 .index-desc {
   margin-top: 20rpx;
-  color: #888888;
-  font-size: 28rpx;
+  color:red;
+  font-size: 32rpx;
 }
 
 
