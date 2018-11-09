@@ -74,7 +74,7 @@ Page({
         wx.navigateTo({url: 'mf'})
     },
     kindToggle(e) {
-        const id = e.currentTarget.id
+        const id = e.currentTarget.id;
         let billDatas = this.data.billDatas;
         let hasClear = 0;
         for (let i = 0, len = billDatas.length; i < len; ++i) {
@@ -146,6 +146,10 @@ Page({
                 wx.setStorage({
                     key: 'noClearData',
                     data: newBillDatas
+                });
+                wx.setStorage({
+                    key: 'hasClear',
+                    data: 0
                 });
                 _this.setData({
                     billDatas : newBillDatas,
