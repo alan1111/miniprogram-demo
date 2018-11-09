@@ -2,6 +2,18 @@ const openIdUrl = require('./config').openIdUrl
 
 App({
   onLaunch(opts) {
+    wx.setStorage({
+        key: 'allMessage',
+        data: []
+    });
+    wx.setStorage({
+        key: 'hasClear',
+        data: 0
+    });
+    wx.setStorage({
+        key: 'noClearData',
+        data: []
+    });
     console.log('App Launch', opts)
   },
   onShow(opts) {

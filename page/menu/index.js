@@ -32,12 +32,6 @@ Page({
                         billDatas:data
                     })
                 }
-            },
-            fail: function() {
-                wx.setStorage({
-                    key: 'noClearData',
-                    data: []
-                });
             }
         });
         wx.getStorage({key: 'hasClear',
@@ -45,12 +39,6 @@ Page({
                 _this.setData({
                     hasClear:res.data
                 })
-            },
-            fail: function() {
-                wx.setStorage({
-                    key: 'hasClear',
-                    data: 0
-                });
             }
         });
     },
@@ -155,12 +143,6 @@ Page({
                     billDatas : newBillDatas,
                     hasClear:0
                 })
-            },
-            fail: function() {
-                wx.setStorage({
-                    key: 'allMessage',
-                    data: []
-                });
             }
         });
     }
