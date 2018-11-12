@@ -6,7 +6,7 @@
           <view class="page-section-title">数量</view>
           <button type="primary" bindtap="addQty" size="mini">{{qty}}</button>
         </view>
-        <view class="page-section page-section-gap">
+        <view class="page-section page-section-gap" wx:if="{{listName != 'yp'}}">
           <view class="page-section-title">辣/不辣</view>
           <switch name="switch1" bindchange="hotChange"/>
         </view>
@@ -22,7 +22,7 @@
             {{item.name}}
           </button>
         </view>
-        <view wx:else>
+        <view wx:if="{{listName == 'mf'}}">
           <button style="margin-left:35rpx;" wx:for="{{mfItems}}" id="{{item.id}}" bindtap="mfAddMenu" type="primary" size="mini">
             {{item.name}}
           </button>
@@ -32,16 +32,16 @@
         <view class="tr bg-w">
           <view class="th ">数量</view>
           <view class="th ">单价</view>
-          <view class="th">辣/不辣</view>
-          <view class="th">另加</view>
+          <view class="th" wx:if="{{listName != 'yp'}}">辣/不辣</view>
+          <view class="th" wx:if="{{listName != 'yp'}}">另加</view>
           <view class="th" wx:if="{{showSize=='true'}}">大/小</view>
           <view class="th">总额</view>
         </view>
         <view class="tr">
           <view class="td">{{qty}}份</view>
           <view class="td">{{money}}元</view>
-          <view class="td">{{hot ? '辣' : '不辣'}}</view>
-          <view class="td">{{additionalData}}</view>
+          <view class="td" wx:if="{{listName != 'yp'}}">{{hot ? '辣' : '不辣'}}</view>
+          <view class="td" wx:if="{{listName != 'yp'}}">{{additionalData}}</view>
           <view class="td" wx:if="{{showSize=='true'}}">{{size ? '大' : '小'}}</view>
           <view class="td">{{totalMoney}}元</view>
         </view>

@@ -15,7 +15,6 @@ Page({
               _this.setData({
                   record: res.data
               })
-              console.log('1111111', _this.data.record);
           }
       });
   }

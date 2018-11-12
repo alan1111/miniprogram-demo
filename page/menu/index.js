@@ -18,9 +18,11 @@ Page({
                     let data=_this.data.billDatas;
                     let additionalMess = '';
                     if (options.showSize=='true') {
-                        additionalMess =  options.size=='true' ? '大碗-' : '小碗-';
+                        additionalMess =  options.size=='true' ? '-大碗' : '-小碗';
                     }
-                    additionalMess += options.hot=='true' ? '辣' : '不辣';
+                    if (options.listName != 'yp') {
+                        additionalMess += options.hot=='true' ? '-辣' : '-不辣';
+                    }
                     if (options.additionalData !='') {
                         additionalMess += options.additionalData
                     }
@@ -28,7 +30,7 @@ Page({
                         'id': data.length,
                         'listName': options.listName,
                         'name': options.name,
-                        'request': `${options.qty}份-${additionalMess}`,
+                        'request': `${options.qty}份${additionalMess}`,
                         'totalMoney': options.totalMoney,
                         'clear': false
                     });
@@ -59,6 +61,9 @@ Page({
     },
     toMf(){
         wx.navigateTo({url: 'mf/mf'})
+    },
+    toYp(){
+        wx.navigateTo({url: 'yp/yp'})
     },
     toHistory(){
         wx.navigateTo({url: 'history/history'})

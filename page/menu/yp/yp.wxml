@@ -1,0 +1,20 @@
+<view class="container">
+  <view class="table">
+    <view class="tr bg-w">
+      <view class="th">菜品</view>
+      <view class="th">价格</view>
+      <view class="th ">点菜</view>
+    </view>
+    <block wx:for="{{menuData}}" wx:key="{{item.id}}">
+      <view class="tr">
+        <view class="td">{{item.name}}</view>
+        <view class="td">{{item.money}}</view>
+        <view class="td">
+          <navigator url="../orderDish/orderDish?listName={{item.listName}}&name={{item.name}}&money={{item.money}}&showSize={{item.showSize}}" hover-class="navigator-hover">
+            <button type="primary" size="mini">选择</button>
+          </navigator>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>
