@@ -1,9 +1,19 @@
-<import src="../common/head.wxml" />
-<import src="../common/foot.wxml" />
-
 <view class="container">
-  <template is="head" data="{{title: '新建的页面'}}"/>
-  <button bindtap="test">1122</button>
-  <p>{{title}}</p>
-  <button bindtap="clear">clear</button>
+  <view class="table">
+    <view class="tr bg-w">
+      <view class="th">名字</view>
+      <view class="th">要求</view>
+      <view class="th">总额</view>
+    </view>
+    <block wx:for="{{record}}" wx:key="{{item.date}}">
+      <view class="tr" style="background-color:red;color:white;">
+        {{item.date}}
+      </view>
+      <view class="tr" wx:for="{{item.billDatas}}" wx:for-item="data" wx:key="{{data.id}}">
+        <view class="td">{{data.name}}</view>
+        <view class="td">{{data.request}}</view>
+        <view class="td">{{data.totalMoney}}</view>
+      </view>
+    </block>
+  </view>
 </view>

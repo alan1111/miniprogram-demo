@@ -7,11 +7,11 @@
         <view class="flex-wrp" style="flex-direction:row;">
             <button type="primary" bindtap="toGq">云南过桥米线</button>
             <button type="primary" bindtap="toMf">面,粉</button>
+            <button type="primary" bindtap="toHistory">历史记录</button>
         </view>
         <view class="flex-wrp" style="flex-direction:row;">
             <button type="primary" size="mini" bindtap="putHistory">清除已支付订单</button>
             <button class="mini-btn" type="default" size="mini">已支付订单总额： {{hasClear}}元</button>
-            <!--<button type="primary" size="mini">历史记录</button>-->
         </view>
         <view class="table">
             <view class="tr bg-w">

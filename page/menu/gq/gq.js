@@ -4,7 +4,7 @@ Page({
     onShareAppMessage() {
         return {
             title: '云南过桥米线',
-            path: 'page/menu/gq'
+            path: 'page/menu/gq/gq'
         }
     },
     data: {
@@ -83,31 +83,17 @@ Page({
             {
                 'id': '10',
                 'listName':'gq',
-                'name': '一份素菜',
+                'name': '一份菌菜',
                 'money': '3',
                 'showSize':false
             },
             {
                 'id': '11',
                 'listName':'gq',
-                'name': '一份菌菜',
-                'money': '3',
-                'showSize':false
-            },
-            {
-                'id': '12',
-                'listName':'gq',
                 'name': '一份米线',
                 'money': '4',
                 'showSize':false
-            },
-            {
-                'id': '13',
-                'listName':'gq',
-                'name': '一份荤菜',
-                'money': '4',
-                'showSize':false
-            },
+            }
         ]
     },
     onLoad(options) {

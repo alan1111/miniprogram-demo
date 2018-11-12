@@ -15,11 +15,25 @@
           <switch name="switch2" bindchange="sizeChange"/>
         </view>
       </view>
+      <view class="page-section">
+        <view class="page-section-title">加菜系列</view>
+        <view wx:if="{{listName == 'gq'}}">
+          <button style="margin-left:35rpx;" wx:for="{{items}}" id="{{item.id}}" bindtap="addMenu" type="primary" size="mini">
+            {{item.name}}
+          </button>
+        </view>
+        <view wx:else>
+          <button style="margin-left:35rpx;" wx:for="{{mfItems}}" id="{{item.id}}" bindtap="mfAddMenu" type="primary" size="mini">
+            {{item.name}}
+          </button>
+        </view>
+      </view>
       <view class="table">
         <view class="tr bg-w">
           <view class="th ">数量</view>
           <view class="th ">单价</view>
           <view class="th">辣/不辣</view>
+          <view class="th">另加</view>
           <view class="th" wx:if="{{showSize=='true'}}">大/小</view>
           <view class="th">总额</view>
         </view>
@@ -27,6 +41,7 @@
           <view class="td">{{qty}}份</view>
           <view class="td">{{money}}元</view>
           <view class="td">{{hot ? '辣' : '不辣'}}</view>
+          <view class="td">{{additionalData}}</view>
           <view class="td" wx:if="{{showSize=='true'}}">{{size ? '大' : '小'}}</view>
           <view class="td">{{totalMoney}}元</view>
         </view>

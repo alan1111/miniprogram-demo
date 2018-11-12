@@ -2,31 +2,21 @@ Page({
   onShareAppMessage() {
     return {
       title: 'navigatePage',
-      path: 'page/menu/index'
+      path: 'page/menu/history/history'
     }
   },
   data:{
-      title: 'test'
+      record: []
   },
   onLoad(options) {
-    console.log(options)
-    this.setData({
-      title: options.title
-    })
-  },
-    test() {
-        let count = 1;
-        let that = this;
-        this.interval = setInterval(function() {
-            count++;
-            that.setData({
-                title: count+'1122'
-            })
-        }, 1000)
-    },
-
-    clear() {
-        clearInterval(this.interval)
-    }
-
+      let _this = this;
+      wx.getStorage({key: 'allMessage',
+          success:function (res) {
+              _this.setData({
+                  record: res.data
+              })
+              console.log('1111111', _this.data.record);
+          }
+      });
+  }
 })

@@ -1,5 +1,9 @@
 @import "../../common/index.wxss";
 
+.checkbox{
+    margin-right: 20rpx;
+}
+
 .flex-wrp {
     margin-top: 60 rpx;
     display: flex;
