@@ -50,10 +50,10 @@ Page({
         billDatas: [],
     },
     toGq(){
-        wx.navigateTo({url: 'gq'})
+        wx.navigateTo({url: 'gq/gq'})
     },
     toMf(){
-        wx.navigateTo({url: 'mf'})
+        wx.navigateTo({url: 'mf/mf'})
     },
     kindToggle(e) {
         const id = e.currentTarget.id;

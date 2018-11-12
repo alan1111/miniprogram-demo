@@ -1,7 +1,4 @@
-<import src="../common/head.wxml" />
-
 <view class="container">
-  <template is="head" data="{{title: '云南过桥米线'}}"/>
   <view class="page-body">
     <form catchsubmit="formSubmit" catchreset="formReset">
       <view class="flex-wrp" style="flex-direction:row;">

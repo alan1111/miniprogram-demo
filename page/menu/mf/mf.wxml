@@ -10,7 +10,7 @@
         <view class="td">{{item.name}}</view>
         <view class="td">{{item.money}}</view>
         <view class="td">
-          <navigator url="orderDish?listName={{item.listName}}&name={{item.name}}&money={{item.money}}&showSize={{item.showSize}}" hover-class="navigator-hover">
+          <navigator url="../orderDish/orderDish?listName={{item.listName}}&name={{item.name}}&money={{item.money}}&showSize={{item.showSize}}" hover-class="navigator-hover">
             <button type="primary" size="mini">选择</button>
           </navigator>
         </view>

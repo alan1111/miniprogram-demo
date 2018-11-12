@@ -29,7 +29,7 @@ Page({
     },
 
     formSubmit(e) {
-        wx.reLaunch({url: `./index?listName=${this.data.listName}&name=${this.data.name}&hot=${this.data.hot}&size=${this.data.size}&qty=${this.data.qty}&money=${this.data.money}&totalMoney=${this.data.totalMoney}&showSize=${this.data.showSize}`})
+        wx.reLaunch({url: `../index?listName=${this.data.listName}&name=${this.data.name}&hot=${this.data.hot}&size=${this.data.size}&qty=${this.data.qty}&money=${this.data.money}&totalMoney=${this.data.totalMoney}&showSize=${this.data.showSize}`})
     },
 
     formReset(e) {
