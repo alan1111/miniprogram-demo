@@ -1,4 +1,4 @@
-@import "../common/index.wxss";
+@import "../../common/index.wxss";
 
 .flex-wrp {
     margin-top: 60 rpx;

@@ -1,10 +1,10 @@
 {
   "pages": [
     "page/menu/index",
-    "page/menu/gq",
-    "page/menu/mf",
-    "page/menu/history",
-    "page/menu/orderDish"
+    "page/menu/gq/gq",
+    "page/menu/mf/mf",
+    "page/menu/history/history",
+    "page/menu/orderDish/orderDish"
   ],
   "window": {
     "navigationBarTextStyle": "black",
