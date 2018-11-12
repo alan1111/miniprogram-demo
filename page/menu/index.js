@@ -15,12 +15,15 @@ Page({
                 });
                 if (Object.keys(options).length>0) {
                     let data=_this.data.billDatas;
-                    let sizeMess = options.showSize ? (options.size ? '大碗-' : '小碗-') :'';
+                    let sizeMess = '';
+                    if (options.showSize=='true') {
+                        sizeMess =  options.size=='true' ? '大碗-' : '小碗-';
+                    }
                     data.push({
                         'id': data.length,
                         'listName': options.listName,
                         'name': options.name,
-                        'request': `${options.qty}份-${sizeMess}${options.hot ? '辣' : '不辣'}`,
+                        'request': `${options.qty}份-${sizeMess}${options.hot=='true' ? '辣' : '不辣'}`,
                         'totalMoney': options.totalMoney,
                         'clear': false
                     });
@@ -45,15 +48,6 @@ Page({
     data: {
         hasClear:0,
         billDatas: [],
-        listData:[
-            {"code":"01","text":"text1","type":"type1"},
-            {"code":"02","text":"text2","type":"type2"},
-            {"code":"03","text":"text3","type":"type3"},
-            {"code":"04","text":"text4","type":"type4"},
-            {"code":"05","text":"text5","type":"type5"},
-            {"code":"06","text":"text6","type":"type6"},
-            {"code":"07","text":"text7","type":"type7"}
-        ]
     },
     toGq(){
         wx.navigateTo({url: 'gq'})
