@@ -140,6 +140,7 @@ button {
   margin-right: 10 rpx;
 }
 .table {
+  font-size: 32rpx;
   border: 0px solid darkgray;
 }
 .tr {
