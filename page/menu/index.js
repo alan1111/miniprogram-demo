@@ -116,12 +116,12 @@ Page({
                 let clearBillDatas = [];
                 _this.data.billDatas.forEach(val=>{
                     if (val.clear==false) {
-                        newBillDatas.push(val)
+                        newBillDatas.unshift(val)
                     } else {
-                        clearBillDatas.push(val)
+                        clearBillDatas.unshift(val)
                     }
                 });
-                datas.push({
+                datas.unshift({
                     "date": _this.getDate(),
                     "billDatas":clearBillDatas,
                     "total": _this.getTotalMoney(clearBillDatas)
