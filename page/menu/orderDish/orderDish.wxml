@@ -15,7 +15,7 @@
           <switch name="switch2" bindchange="sizeChange"/>
         </view>
       </view>
-      <view class="page-section">
+      <view class="page-section" wx:if="{{money > 4}}">
         <view class="page-section-title">加菜系列</view>
         <view wx:if="{{listName == 'gq'}}">
           <button style="margin-left:35rpx;" wx:for="{{items}}" id="{{item.id}}" bindtap="addMenu" type="primary" size="mini">

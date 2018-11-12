@@ -86,6 +86,34 @@ Page({
                 'name': '砂锅酸辣粉',
                 'money': '7',
                 'showSize':false
+            },
+            {
+                'id': '11',
+                'listName':'mf',
+                'name': '腊汁肉夹馍',
+                'money': '4',
+                'showSize':false
+            },
+            {
+                'id': '12',
+                'listName':'mf',
+                'name': '加肉一份',
+                'money': '2',
+                'showSize':false
+            },
+            {
+                'id': '13',
+                'listName':'mf',
+                'name': '香肠',
+                'money': '1.5',
+                'showSize':false
+            },
+            {
+                'id': '14',
+                'listName':'mf',
+                'name': '麻花',
+                'money': '2',
+                'showSize':false
             }
         ]
     },
