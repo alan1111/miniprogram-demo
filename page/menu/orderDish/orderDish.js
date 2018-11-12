@@ -54,7 +54,7 @@ Page({
     },
     addMenu(e) {
         let id = e.currentTarget.id;
-        let addtionalMoney = parseInt(this.data.additionalMoney);
+        let addtionalMoney = parseFloat(this.data.additionalMoney);
         let currentMoney = 0;
         if (id > 4) {
             currentMoney += 4;
@@ -139,7 +139,7 @@ Page({
         let qty = this.data.qty;
         qty++;
         let additionVal = this.data.additionalMoney;
-        let total = parseInt(this.data.money) * parseInt(qty) + additionVal;
+        let total = parseFloat(this.data.money) * parseFloat(qty) + additionVal;
         this.setData({
             qty: qty,
             totalMoney: total

@@ -72,7 +72,7 @@ Page({
                 billDatas[i].clear = !billDatas[i].clear;
             }
             if (billDatas[i].clear) {
-                hasClear += parseInt(billDatas[i].totalMoney);
+                hasClear += parseFloat(billDatas[i].totalMoney);
             }
         }
         wx.setStorage({
@@ -102,7 +102,7 @@ Page({
     getTotalMoney(billDatas) {
         let dolor = 0;
         billDatas.forEach(function (data) {
-            dolor += parseInt(data.money);
+            dolor += parseFloat(data.money);
         });
         return dolor
     },
