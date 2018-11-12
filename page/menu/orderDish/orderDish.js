@@ -32,7 +32,8 @@ Page({
         mfItems: [
             {id: '1', name: '腊汁肉夹馍'},
             {id: '2', name: '加肉一份'},
-            {id: '3', name: '香肠'}
+            {id: '3', name: '香肠'},
+            {id: '4', name: '麻花'}
         ],
         qty: 1,
         name: '',
@@ -81,7 +82,7 @@ Page({
         let currentMoney = 0;
         if (id == 1) {
             currentMoney += 4;
-        } else if (id == 2) {
+        } else if (id == 2 || id == 4) {
             currentMoney += 2;
         } else {
             currentMoney += 1.5;
