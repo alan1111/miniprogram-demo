@@ -27,10 +27,10 @@
                     <view class="td">{{item.totalMoney}}</view>
                     <view class="td">
                         <button id="{{item.id}}" bindtap="kindToggle" wx:if="{{!item.clear}}" type="primary" size="mini">
-                            clear
+                            未付款
                         </button>
                         <p wx:else>
-                            have cleared
+                            已付款
                         </p>
                     </view>
                 </view>
