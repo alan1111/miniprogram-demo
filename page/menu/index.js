@@ -24,7 +24,7 @@ Page({
                     if (options.additionalData !='') {
                         additionalMess += options.additionalData
                     }
-                    data.push({
+                    data.unshift({
                         'id': data.length,
                         'listName': options.listName,
                         'name': options.name,
