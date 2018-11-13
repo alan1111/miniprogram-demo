@@ -11,6 +11,13 @@ Page({
         qty:1,
         menuData: [
             {
+                'id': '12',
+                'listName':'gq',
+                'name': '荤菜/素菜',
+                'money': '0',
+                'showSize':false
+            },
+            {
                 'id': '0',
                 'listName':'gq',
                 'name': '一种荤菜',
