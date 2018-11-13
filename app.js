@@ -13,6 +13,17 @@ App({
               });
           }
       });
+      wx.getStorage({key: 'addKey',
+          success:function (res) {
+              console.log('success noClearData')
+          },
+          fail () {
+              wx.setStorage({
+                  key: 'addKey',
+                  data: 0
+              });
+          }
+      });
       wx.getStorage({key: 'allMessage',
           success:function (res) {
               console.log('success allMessage')

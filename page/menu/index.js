@@ -26,21 +26,31 @@ Page({
                     if (options.additionalData !='') {
                         additionalMess += options.additionalData
                     }
-                    data.unshift({
-                        'id': data.length,
-                        'listName': options.listName,
-                        'name': options.name,
-                        'request': `${options.qty}份${additionalMess}`,
-                        'totalMoney': options.totalMoney,
-                        'clear': false
+                    wx.getStorage({key: 'addKey',
+                        success:function (keyRes) {
+                            let currentKey = keyRes.data;
+                            data.unshift({
+                                'id': currentKey,
+                                'listName': options.listName,
+                                'name': options.name,
+                                'request': `${options.qty}份${additionalMess}`,
+                                'totalMoney': options.totalMoney,
+                                'clear': false
+                            });
+                            currentKey++
+                            wx.setStorage({
+                                key: 'noClearData',
+                                data: data
+                            });
+                            wx.setStorage({
+                                key: 'addKey',
+                                data: currentKey
+                            });
+                            _this.setData({
+                                billDatas:data
+                            })
+                        }
                     });
-                    wx.setStorage({
-                        key: 'noClearData',
-                        data: data
-                    });
-                    _this.setData({
-                        billDatas:data
-                    })
                 }
             }
         });

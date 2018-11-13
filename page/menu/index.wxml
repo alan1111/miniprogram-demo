@@ -1,4 +1,4 @@
-<view class="index">
+<view class="index" style="margin-bottom:100rpx;">
     <view class="index-hd">
         <image class="index-logo" src="../../image/ali888.jpg"></image>
         <view class="index-desc">生意兴隆，万事如意</view>
