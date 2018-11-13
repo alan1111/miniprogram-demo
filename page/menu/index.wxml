@@ -19,7 +19,8 @@
                 <view class="th">名字</view>
                 <view class="th">要求</view>
                 <view class="th">需付</view>
-                <view class="th">清除</view>
+                <view class="th">付款</view>
+                <view class="th">删除</view>
             </view>
             <block wx:for="{{billDatas}}" wx:key="{{item.id}}">
                 <view class="tr">
@@ -28,11 +29,16 @@
                     <view class="td">{{item.totalMoney}}</view>
                     <view class="td">
                         <button id="{{item.id}}" bindtap="kindToggle" wx:if="{{!item.clear}}" type="primary" size="mini">
-                            未付款
+                            未付
                         </button>
                         <p wx:else>
-                            已付款
+                            已付
                         </p>
+                    </view>
+                    <view class="td">
+                        <button id="{{item.id}}" bindtap="deleteItem" type="primary" size="mini">
+                            删除
+                        </button>
                     </view>
                 </view>
             </block>

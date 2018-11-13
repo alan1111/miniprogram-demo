@@ -68,6 +68,32 @@ Page({
     toHistory(){
         wx.navigateTo({url: 'history/history'})
     },
+    deleteItem(e) {
+        const id = e.currentTarget.id;
+        let billDatas = this.data.billDatas;
+        let hasClear = 0;
+        for (let i = 0, len = billDatas.length; i < len; ++i) {
+            if (billDatas[i] && billDatas[i].id == id) {
+                billDatas.splice(i,1);
+            } else {
+                if (billDatas[i] && billDatas[i].clear) {
+                    hasClear += parseFloat(billDatas[i].totalMoney);
+                }
+            }
+        }
+        wx.setStorage({
+            key: 'noClearData',
+            data: billDatas
+        });
+        wx.setStorage({
+            key: 'hasClear',
+            data: hasClear
+        });
+        this.setData({
+            billDatas : billDatas,
+            hasClear:hasClear
+        })
+    },
     kindToggle(e) {
         const id = e.currentTarget.id;
         let billDatas = this.data.billDatas;
